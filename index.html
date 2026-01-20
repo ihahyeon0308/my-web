@@ -1,38 +1,421 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Momentum App</title>
-  </head>
-  <body>
-    <h2 id="clock">00:00:00</h2>
-    
-  <form id="login-form">
-    <input type="text" placeholder="이름을 입력하세요" required />
-    <button>로그인</button>
-  </form>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lupico Spotify</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" type ="text/css" href="style.css">
+</head>
+<body onclick="playBgm()">
+    <audio id="bgm" src="assets/TOHO BGM.mp3" autoplay loop></audio>
 
-  <h1 id="greeting" class="hidden"></h1>
+    <script>
+        function playBgm() {
+            document.getElementById("bgm").play();
+        }
+    </script>
 
-    <form id="todo-form">
-      <input type="text" placeholder="Write a To Do and Press Enter" required />
-    </form>
-    <ul id="todo-list"></ul>
-    <div id="quote">
-      <span></span>
-      <span></span>
+    <div class="container">
+        <div class="left">
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="assets/Home.svg" alt="" class="gray-filtered">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <img src="assets/Search.svg" alt="" class="gray-filtered">
+                            <span>Search</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <img src="assets/YourLibrary.png" alt="" class="gray-filtered">
+                            <span>Your Library</span>
+                        </a>
+                    </li>
+                    <div style="height: 20px;"></div>
+                    <li>
+                        <a href="#">
+                            <img src="assets/CreatePlaylist.svg" alt="" class="gray-filtered">
+                            <span>Create Playlist</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <img src="assets/Like.png" alt="" class="gray-filtered">
+                            <span>Liked Songs</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <hr width="100%">
+            <div class="menu playlists">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <span>Lupico</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span>HUFS</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span>TAB</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span>the Owl of Minerva</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span>rm -rf ./*</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span>Mitsuya Research</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span>The Dancing Men</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span>Le Petit Prince</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span>The Pied Piper of Hamelin</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span>The White Rabbit</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span>The Gingerbread House</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span>Little Red Riding Hood</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span>A wandering CS student</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="current-song-cover">
+                <img src="images/TAB.jpg" alt="">
+            </div>
+
+        </div>
+
+        <div class="right">
+            <div class="playlist-header">
+                <div class="playlist-top">
+                    <div class="playlist-arrows">
+                        <div class="arrow-container">
+                            <img src="assets/LeftArrow.png" alt="">
+                        </div>
+
+                        <div class="arrow-container">
+                            <img src="assets/RightArrow.png" alt="">
+                        </div>
+                    </div>
+                    <div class="playlist-top-email">
+                        <div class="arrow-container">
+                            <img src="assets/Profile.png" alt="">
+                        </div>
+                        <span>Lupico</span>
+                    </div>
+                </div>
+                <div class="playlist-content">
+                    <div class="playlist-cover">
+                        <img src="images/playlist-cover.png" alt="">
+                    </div>
+                    <div class="playlist-info">
+                        <div class="playlist-public">PUBLIC PLAYLIST</div>
+                        <div class="playlist-title">
+                            Music for Wandering the Campus
+                        </div>
+                        <div class="playlist-description">
+                            A soundtrack to fuel your good mood while on campus.
+                        </div>
+                        <div class="playlist-stats">
+                            <img src="assets/spotify-logo.png" alt="" width="24px" height="24px">
+                            <span>Spotify .</span>
+                            <span>5,133,282 likes .</span>
+                            <span>100 songs, </span>
+                            <span style="font-weight: 200;"> 6 hr 59 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="playlist-songs-container">
+                <div class="playlist-buttons">
+                    <div class="playlist-buttons-left">
+                        <div class="playlist-buttons-resume-pause">
+                            <img src="assets/Pause.png" alt="">
+                        </div>
+
+                        <div class="playlist-buttons-like">
+                            <img src="assets/FiledLike.png" alt="" class="spotify-color">
+                        </div>
+
+                        <div class="playlist-buttons-download">
+                            <img src="assets/Download.png" alt="">
+                        </div>
+
+                        <div class="playlist-buttons-three-dot">
+                            <img src="assets/ThreeDots.png" alt="">
+                        </div>
+
+                    </div>
+                    <div class="playlist-buttons-right">
+                        <div class="playlist-buttons-search">
+                            <img src="assets/Search.svg" alt="">
+                        </div>
+                        <div class="playlist-buttons-order">
+                            Custom Order
+                        </div>
+                    </div>
+                </div>
+                <div class="playlist-songs">
+                    <table>
+                        <tr>
+                            <th>#</th>
+                            <th>TITLE</th>
+                            <th>ALBUM</th>
+                            <th>DATA ADDED</th>
+                            <th><img src="assets/Duration.svg" alt=""></th>
+                        </tr>
+                        <tr style="height: 20px;">
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td class="song-title">
+                                <div class="song-image">
+                                    <img src="images/song-cover.png" alt="">
+                                </div>
+                                <div class="song-name-artist">
+                                    <div class="song-name">
+                                        AURORA 
+                                    </div>
+                                    <div class="song-artist">Shigeaki Saegusa</div>
+                                </div>
+                            </td>
+                            <td class="song-album">
+                                GUNDAM
+                            </td>
+                            <td class="song-date-added">1988</td>
+                            <td class="song-duration">2:46</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td class="song-title">
+                                <div class="song-image">
+                                    <img src="images/song-cover_2.png" alt="">
+                                </div>
+                                <div class="song-name-artist">
+                                    <div class="song-name">
+                                        내일의 우리 
+                                    </div>
+                                    <div class="song-artist">카더가든</div>
+                                </div>
+                            </td>
+                            <td class="song-album">
+                                Harmony
+                            </td>
+                            <td class="song-date-added">2023</td>
+                            <td class="song-duration">4:00</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td class="song-title">
+                                <div class="song-image">
+                                    <img src="images/song-cover_3.png" alt="">
+                                </div>
+                                <div class="song-name-artist">
+                                    <div class="song-name">
+                                         OCEAN
+                                    </div>
+                                    <div class="song-artist">B'z</div>
+                                </div>
+                            </td>
+                            <td class="song-album">
+                                OCEAN
+                            </td>
+                            <td class="song-date-added">2005</td>
+                            <td class="song-duration">5:24</td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+                            <td class="song-title">
+                                <div class="song-image">
+                                    <img src="images/song-cover_4.png" alt="">
+                                </div>
+                                <div class="song-name-artist">
+                                    <div class="song-name">
+                                        가을밤에 든 생각 
+                                    </div>
+                                    <div class="song-artist">잔나비</div>
+                                </div>
+                            </td>
+                            <td class="song-album">
+                                잔나비 소곡집I
+                            </td>
+                            <td class="song-date-added">2020</td>
+                            <td class="song-duration">3:07</td>
+                        </tr>
+
+                        <tr>
+                            <td>5</td>
+                            <td class="song-title">
+                                <div class="song-image">
+                                    <img src="images/song-cover_5.png" alt="">
+                                </div>
+                                <div class="song-name-artist">
+                                    <div class="song-name">
+                                        Kamakura Monogatari -Main Title-
+                                    </div>
+                                    <div class="song-artist">Naoki Sato</div>
+                                </div>
+                            </td>
+                            <td class="song-album">
+                                Destiny
+                            </td>
+                            <td class="song-date-added">2017</td>
+                            <td class="song-duration">2:12</td>
+                        </tr>
+
+                        <tr>
+                            <td>6</td>
+                            <td class="song-title">
+                                <div class="song-image">
+                                    <img src="images/song-cover_6.png" alt="">
+                                </div>
+                                <div class="song-name-artist">
+                                    <div class="song-name">
+                                        I Am Your Dream
+                                    </div>
+                                    <div class="song-artist">Hakdo</div>
+                                </div>
+                            </td>
+                            <td class="song-album">
+                                작곡하는 경영학도
+                            </td>
+                            <td class="song-date-added">2023</td>
+                            <td class="song-duration">2:18</td>
+                        </tr>
+
+                        <tr>
+                            <td>7</td>
+                            <td class="song-title">
+                                <div class="song-image">
+                                    <img src="images/song-cover_7.png" alt="">
+                                </div>
+                                <div class="song-name-artist">
+                                    <div class="song-name">
+                                        虹
+                                    </div>
+                                    <div class="song-artist">SUDA MASAKI</div>
+                                </div>
+                            </td>
+                            <td class="song-album">
+                                COLLAGE
+                            </td>
+                            <td class="song-date-added">2020</td>
+                            <td class="song-duration">4:18</td>
+                        </tr>
+                        
+                    </table>
+                </div>
+            </div>
+
+        </div> 
+
     </div>
-    <div id="weather">
-      <span id="weather-text"></span>
-      <span id="city-text"></span>
+
+    <div class="footer-player">
+        <div class="footer-player-left">
+            <div class="footer-player-left-song">
+                <div class="footer-player-left-song-name">TAB — The Computer Engineering Academic Society at HUFS</div>
+                <div class="footer-player-left-song-artist">TAB Members</div>
+            </div>
+
+            <div class="footer-player-left-like">
+                <img src="assets/FiledLike.png" alt="">
+            </div>
+        </div>
+        <div class="footer-player-middle">
+            <div class="footer-player-middle-buttons">
+                <img src="assets/Shuffle.png" alt="" class="gray-filtered">
+                <img src="assets/Previous.png" alt="" class="gray-filtered">
+                <div class="pause-button">
+                    <img src="assets/Pause.png" alt="">
+                </div>
+                <img src="assets/Next.png" alt="" class="gray-filtered">
+                <img src="assets/Repeat.png" alt="" class="gray-filtered">
+            </div>
+            <div class="footer-player-middle-slider">
+                <div class="player-time">19:00</div>
+                <div class="player-slider">
+                    <input type="range" min="1" max="100" value="30">
+                </div>
+                <div class="player-time">20:26</div>
+            </div>
+        </div>
+        <div class="footer-player-right">
+            <div class="footer-player-right-buttons">
+                <img src="assets/Lyrics.png" alt="">
+                <img src="assets/Queue.png" alt="">
+                <img src="assets/connect to a device.png" alt="">
+                <img src="assets/volume.png" alt="">
+                <div class="player-slider">
+                    <input type="range" min="1" max="100" value="30">
+                </div>
+                <img src="assets/Full screen.png" alt="">
+                <div class="player-slider">
+            </div>
+        </div>
     </div>
-    <script src="js/greetings.js"></script>
-    <script src="js/clock.js"></script>
-    <script src="js/quotes.js"></script>
-    <script src="js/background.js"></script>
-    <script src="js/todo.js"></script>
-    <script src="js/weather.js"></script>
-  </body>
-</html>
+</body>
+</html> 
